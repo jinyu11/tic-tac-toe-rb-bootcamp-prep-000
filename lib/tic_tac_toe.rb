@@ -86,3 +86,14 @@ end
       return "O"
     end
   end
+  def play(board)
+   while !over?(board) && !won?(board) && !draw?(board)
+     turn(board)
+   end
+   if won?(board)
+     puts "Congratulations #{winner(board)}!"
+    end
+   if draw?(board)
+     puts "Cats Game!"
+   end
+ end
