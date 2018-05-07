@@ -49,7 +49,7 @@ def turn_count(board)
   end
     count
  end
- 
+
  def current_player(board)
    if turn_count(board) % 2 == 0
         return "X"
@@ -57,7 +57,7 @@ def turn_count(board)
         return "O"
    end
  end
- 
+
  def won?(board)
     board.all? {|i| i != " " || i != ""}
     win = WIN_COMBINATIONS.detect do |winning_array|
@@ -70,7 +70,7 @@ def turn_count(board)
       end
     end
   end
-  
+
 def full?(board)
   board.all? do |position|
     position == "X" || position == "O"
@@ -113,4 +113,4 @@ def play(board)
    if draw?(board)
      puts "Cat's Game!"
    end
- end
+  end
