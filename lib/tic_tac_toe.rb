@@ -52,12 +52,12 @@ def turn_count(board)
  end
  def won?(board)
     board.all? {|i| i != " " || i != ""}
-    win = WIN_COMBINATIONS.detect do |win_array|
-      if win_array.all? {|position| board[position] == "X" } == true
-        winning_array.inspect
+    win = WIN_COMBINATIONS.detect do |winning_array|
+      if winning_array.all? {|position| board[position] == "X" } == true
+        win.inspect
         true
-      elsif win_array.all? {|position| board[position] == "O" } == true
-        winning_array.inspect
+      elsif winning_array.all? {|position| board[position] == "O" } == true
+        win.inspect
         true
       end
     end
