@@ -68,7 +68,7 @@ def turn_count(board)
   end
 end
  def draw?(board)
-  if (won?(board) != nil) && (full?(board) == true)
+  if (won?(board) != nil) && full?(board) == true
     draw = true
   else
     draw = false
