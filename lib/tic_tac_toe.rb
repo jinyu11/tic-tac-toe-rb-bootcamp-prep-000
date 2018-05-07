@@ -62,3 +62,19 @@ def turn_count(board)
       end
     end
   end
+  def full?(board)
+  board.all? do |position|
+    position == "X" || position == "O"
+  end
+end
+ def draw?(board)
+  !(won?(board)) && full?(board)
+end
+ def over?(board)
+   if (draw?(board) == true) || (won?(board) != nil || full?(board) == true)
+     over = true
+   else
+     over = false
+   end
+ end
+
