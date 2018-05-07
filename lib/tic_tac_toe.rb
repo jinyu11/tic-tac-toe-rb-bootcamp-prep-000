@@ -11,18 +11,23 @@ end
 
 board = [" "," "," "," "," "," "," "," "," "]
 display_board(board)
+
 def input_to_index(user_input)
     user_input.to_i - 1
 end
+
 def move(board, position, character)
   board[position] = character
 end
+
 def position_taken?(board, location)
   board[location] != " " && board[location] != ""
 end
+
 def valid_move?(board, index)
   index.between?(0,8) && !position_taken?(board, index)
 end
+
 def turn(board)
   puts "Please enter 1-9:"
     userInput = gets.strip
@@ -34,6 +39,7 @@ def turn(board)
     end
   display_board(board)
 end
+
 def turn_count(board)
     count = 0
   board.each do |index|
@@ -43,6 +49,7 @@ def turn_count(board)
   end
     count
  end
+ 
  def current_player(board)
    if turn_count(board) % 2 == 0
         return "X"
@@ -50,6 +57,7 @@ def turn_count(board)
         return "O"
    end
  end
+ 
  def won?(board)
     board.all? {|i| i != " " || i != ""}
     win = WIN_COMBINATIONS.detect do |winning_array|
@@ -62,26 +70,30 @@ def turn_count(board)
       end
     end
   end
-  def full?(board)
+  
+def full?(board)
   board.all? do |position|
     position == "X" || position == "O"
   end
 end
- def draw?(board)
+
+def draw?(board)
   if (won?(board) == nil) && full?(board) == true
     draw = true
   else
     draw = false
   end
 end
- def over?(board)
+
+def over?(board)
    if (won?(board) != nil) || (draw?(board) == true) || (full?(board) == true)
      over = true
    else
      over = false
    end
  end
- def winner(board)
+
+def winner(board)
   if (draw?(board) || !full?(board)) && !won?(board)
       return nil
     elsif (board[won?(board)[0]] == "X")
@@ -90,7 +102,8 @@ end
       return "O"
     end
   end
-  def play(board)
+
+def play(board)
    while !over?(board) && !won?(board) && !draw?(board)
      turn(board)
    end
